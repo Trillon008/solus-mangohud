@@ -1,0 +1,36 @@
+name       : mangohud
+version    : 0.3.5
+release    : 1
+source     :
+    - git|https://github.com/flightlessmango/MangoHud.git : v0.3.5
+license    : MIT
+component  : xorg.display
+summary    : Vulkan overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
+description: |
+    A modification of the Mesa Vulkan overlay. Including GUI improvements, temperature reporting, and logging capabilities.
+emul32     : yes
+libsplit   : no
+patterns    : 
+    - 32bit: 
+        - /usr/share/vulkan/implicit_layer.d/mangohud.i686.json
+        - /usr/bin/mangohud.i686
+builddeps  :
+    - pkgconfig32(gl) 
+    - pkgconfig32(vulkan)
+    - glslang-devel
+    - mako
+    - vulkan-headers
+setup      : |
+    %meson_configure -Duse_system_vulkan=enabled -Dwith_xnvctrl=disabled
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
+    # Install default configuration file 
+    install -Dm00644 $workdir/bin/MangoHud.conf -t $installdir/usr/share/mangohud
+    # Handle multiple json files for multilib
+    MANGOJSONDIR=$installdir/usr/share/vulkan/implicit_layer.d
+    if [ $EMUL32BUILD ]; then
+       mv $MANGOJSONDIR/MangoHud.x86.json $MANGOJSONDIR/MangoHud.i686.json
+       mv $installdir/usr/bin/mangohud.x86 $installdir/usr/bin/mangohud.i686
+    fi
