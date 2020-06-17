@@ -38,15 +38,14 @@
             <Dependency release="1">mangohud</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/bin/mangohud.i686</Path>
             <Path fileType="library">/usr/lib32/mangohud/libMangoHud.so</Path>
             <Path fileType="library">/usr/lib32/mangohud/libMangoHud_dlsym.so</Path>
         </Files>
     </Package>
     <History>
         <Update release="1">
-            <Date>2020-06-03</Date>
-            <Version>0.3.5</Version>
+            <Date>2020-06-17</Date>
+            <Version>0.4.1</Version>
             <Comment>Packaging update</Comment>
             <Name>Tristan Bouillon</Name>
             <Email>freego008@gmail.com</Email>

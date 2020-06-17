@@ -1,8 +1,8 @@
 name       : mangohud
-version    : 0.3.5
+version    : 0.4.1
 release    : 1
 source     :
-    - git|https://github.com/flightlessmango/MangoHud.git : v0.3.5
+    - git|https://github.com/flightlessmango/MangoHud.git : v0.4.1
 license    : MIT
 component  : xorg.display
 summary    : Vulkan overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
@@ -13,10 +13,10 @@ libsplit   : no
 patterns    : 
     - 32bit: 
         - /usr/share/vulkan/implicit_layer.d/mangohud.i686.json
-        - /usr/bin/mangohud.i686
 builddeps  :
     - pkgconfig32(gl) 
     - pkgconfig32(vulkan)
+    - pkgconfig32(x11)
     - glslang-devel
     - mako
     - vulkan-headers
@@ -32,5 +32,6 @@ install    : |
     MANGOJSONDIR=$installdir/usr/share/vulkan/implicit_layer.d
     if [ $EMUL32BUILD ]; then
        mv $MANGOJSONDIR/MangoHud.x86.json $MANGOJSONDIR/MangoHud.i686.json
-       mv $installdir/usr/bin/mangohud.x86 $installdir/usr/bin/mangohud.i686
+       # mangohud.x86 bin is not needed on Solus, but compilation still creates /usr/bin/mangohud.x86
+       rm $installdir/usr/bin/mangohud.x86
     fi
