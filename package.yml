@@ -11,8 +11,7 @@ description: |
 emul32     : yes
 libsplit   : no
 patterns    : 
-    - 32bit: 
-        - /usr/share/vulkan/implicit_layer.d/mangohud.i686.json
+    - /*
 builddeps  :
     - pkgconfig32(gl) 
     - pkgconfig32(vulkan)
@@ -32,6 +31,5 @@ install    : |
     MANGOJSONDIR=$installdir/usr/share/vulkan/implicit_layer.d
     if [ $EMUL32BUILD ]; then
        mv $MANGOJSONDIR/MangoHud.x86.json $MANGOJSONDIR/MangoHud.i686.json
-       # mangohud.x86 bin is not needed on Solus, but compilation still creates /usr/bin/mangohud.x86
-       rm $installdir/usr/bin/mangohud.x86
+       mv $installdir/usr/bin/mangohud.x86 $installdir/usr/bin/mangohud.i686
     fi

@@ -20,6 +20,9 @@
         <PartOf>xorg.display</PartOf>
         <Files>
             <Path fileType="executable">/usr/bin/mangohud</Path>
+            <Path fileType="executable">/usr/bin/mangohud.i686</Path>
+            <Path fileType="library">/usr/lib32/mangohud/libMangoHud.so</Path>
+            <Path fileType="library">/usr/lib32/mangohud/libMangoHud_dlsym.so</Path>
             <Path fileType="library">/usr/lib64/mangohud/libMangoHud.so</Path>
             <Path fileType="library">/usr/lib64/mangohud/libMangoHud_dlsym.so</Path>
             <Path fileType="doc">/usr/share/doc/mangohud/MangoHud.conf.example</Path>
@@ -28,23 +31,9 @@
             <Path fileType="data">/usr/share/vulkan/implicit_layer.d/MangoHud.x86_64.json</Path>
         </Files>
     </Package>
-    <Package>
-        <Name>mangohud-32bit</Name>
-        <Summary xml:lang="en">32-bit libraries for mangohud</Summary>
-        <Description xml:lang="en">A modification of the Mesa Vulkan overlay. Including GUI improvements, temperature reporting, and logging capabilities.
-</Description>
-        <PartOf>emul32</PartOf>
-        <RuntimeDependencies>
-            <Dependency release="1">mangohud</Dependency>
-        </RuntimeDependencies>
-        <Files>
-            <Path fileType="library">/usr/lib32/mangohud/libMangoHud.so</Path>
-            <Path fileType="library">/usr/lib32/mangohud/libMangoHud_dlsym.so</Path>
-        </Files>
-    </Package>
     <History>
         <Update release="1">
-            <Date>2020-06-17</Date>
+            <Date>2020-06-24</Date>
             <Version>0.4.1</Version>
             <Comment>Packaging update</Comment>
             <Name>Tristan Bouillon</Name>
