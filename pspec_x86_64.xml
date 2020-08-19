@@ -6,7 +6,7 @@
             <Email>freego008@gmail.com</Email>
         </Packager>
         <License>MIT</License>
-        <PartOf>xorg.display</PartOf>
+        <PartOf>system.utils</PartOf>
         <Summary xml:lang="en">Vulkan overlay layer for monitoring FPS, temperatures, CPU/GPU load and more</Summary>
         <Description xml:lang="en">A modification of the Mesa Vulkan overlay. Including GUI improvements, temperature reporting, and logging capabilities.
 </Description>
@@ -17,24 +17,23 @@
         <Summary xml:lang="en">Vulkan overlay layer for monitoring FPS, temperatures, CPU/GPU load and more</Summary>
         <Description xml:lang="en">A modification of the Mesa Vulkan overlay. Including GUI improvements, temperature reporting, and logging capabilities.
 </Description>
-        <PartOf>xorg.display</PartOf>
+        <PartOf>system.utils</PartOf>
         <Files>
             <Path fileType="executable">/usr/bin/mangohud</Path>
-            <Path fileType="executable">/usr/bin/mangohud.i686</Path>
             <Path fileType="library">/usr/lib32/mangohud/libMangoHud.so</Path>
             <Path fileType="library">/usr/lib32/mangohud/libMangoHud_dlsym.so</Path>
             <Path fileType="library">/usr/lib64/mangohud/libMangoHud.so</Path>
             <Path fileType="library">/usr/lib64/mangohud/libMangoHud_dlsym.so</Path>
             <Path fileType="doc">/usr/share/doc/mangohud/MangoHud.conf.example</Path>
+            <Path fileType="man">/usr/share/man/man1/mangohud.1</Path>
             <Path fileType="man">/usr/share/mangohud/MangoHud.conf</Path>
-            <Path fileType="data">/usr/share/vulkan/implicit_layer.d/MangoHud.i686.json</Path>
-            <Path fileType="data">/usr/share/vulkan/implicit_layer.d/MangoHud.x86_64.json</Path>
+            <Path fileType="data">/usr/share/vulkan/implicit_layer.d/MangoHud.json</Path>
         </Files>
     </Package>
     <History>
-        <Update release="1">
-            <Date>2020-06-24</Date>
-            <Version>0.4.1</Version>
+        <Update release="2">
+            <Date>2020-08-19</Date>
+            <Version>0.5.1</Version>
             <Comment>Packaging update</Comment>
             <Name>Tristan Bouillon</Name>
             <Email>freego008@gmail.com</Email>
